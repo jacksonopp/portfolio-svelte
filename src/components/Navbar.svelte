@@ -1,13 +1,28 @@
 <script lang="ts">
-  import { createEventDispatcher } from "svelte";
+  import { createEventDispatcher, onMount } from "svelte";
 
   import Hamburger from "./Hamburger.svelte";
 
   export let shouldShowNavbar: boolean;
 
+  onMount(() => {
+    shouldShowNavbar = isScreenLarge();
+  });
+
   const emit = createEventDispatcher();
 
-  function showOrHideNavbar(): void {
+  function isScreenLarge(): boolean {
+    return window.innerWidth > 1200;
+  }
+
+  function showOrHideNavbar(shouldUseSize: boolean): void {
+    if (shouldUseSize) {
+      if (!isScreenLarge()) {
+        shouldShowNavbar = !shouldShowNavbar;
+        return;
+      }
+      return;
+    }
     shouldShowNavbar = !shouldShowNavbar;
   }
 </script>
@@ -53,21 +68,37 @@
       margin-top: 3rem;
     }
   }
+
+  .hide-nav {
+    position: fixed;
+    top: 1.5rem;
+    left: 1.5rem;
+  }
 </style>
 
 {#if shouldShowNavbar}
   <!-- content here -->
   <nav class="show-nav">
     <ul>
-      <li><a href="#about-me" on:click={showOrHideNavbar}>About Me</a></li>
-      <li><a href="#portfolio" on:click={showOrHideNavbar}>Portfolio</a></li>
-      <li><a href="#contact" on:click={showOrHideNavbar}>Contact</a></li>
+      <li>
+        <a href="#about-me" on:click={() => showOrHideNavbar(true)}>About Me</a>
+      </li>
+      <li>
+        <a
+          href="#portfolio"
+          on:click={() => showOrHideNavbar(true)}>Portfolio</a>
+      </li>
+      <li>
+        <a href="#contact" on:click={() => showOrHideNavbar(true)}>Contact</a>
+      </li>
     </ul>
-    <button class="times" on:click={showOrHideNavbar}>&times;</button>
+    <button
+      class="times"
+      on:click={() => showOrHideNavbar(false)}>&times;</button>
   </nav>
 {:else}
   <!-- else content here -->
   <nav class="hide-nav">
-    <Hamburger on:hamburger-clicked={showOrHideNavbar} />
+    <Hamburger on:hamburger-clicked={() => showOrHideNavbar(false)} />
   </nav>
 {/if}

@@ -1,6 +1,10 @@
 <script lang="ts">
+	import About from "./components/About.svelte";
+	import Contact from "./components/Contact.svelte";
 	import Name from "./components/Name.svelte";
 	import Navbar from "./components/Navbar.svelte";
+	import Portfolio from "./components/Portfolio.svelte";
+	import Spacer from "./components/Spacer.svelte";
 
 	let isNavbarDisplayed = true;
 	let randomValue = 0;
@@ -20,6 +24,10 @@
 
 		&:visited {
 			color: $link-color;
+		}
+
+		&:hover {
+			color: lighten($color: $link-color, $amount: 0.7);
 		}
 	}
 
@@ -42,7 +50,15 @@
 	section {
 		padding: 1rem;
 	}
+
+	.section {
+		height: 100vh;
+	}
 </style>
+
+<svelte:head>
+	<title>Jackson Oppenheim</title>
+</svelte:head>
 
 <main class={isNavbarDisplayed ? 'open' : 'closed'}>
 	<!-- on:display-change={({ detail }) => handleDisplayChange(detail)} -->
@@ -51,5 +67,17 @@
 	</div>
 	<div class="content">
 		<Name />
+		<Spacer />
+		<div class="section" id="about-me">
+			<About />
+		</div>
+		<Spacer />
+		<div class="section" id="portfolio">
+			<Portfolio />
+		</div>
+		<Spacer />
+		<div class="section" id="contact">
+			<Contact />
+		</div>
 	</div>
 </main>

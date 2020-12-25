@@ -41,12 +41,18 @@
     background-color: transparent;
     padding: 0;
     margin: 0;
+    color: #fff8f0;
 
     &.times {
       font-size: 2.5rem;
       margin: 0 1rem;
+      cursor: pointer;
       &:active {
-        color: transparentize($color: #000000, $amount: 0.7);
+        color: transparentize($color: #fff8f0, $amount: 0.7);
+      }
+
+      &:hover {
+        color: darken($color: #fff8f0, $amount: 20);
       }
     }
 
@@ -59,7 +65,7 @@
     display: flex;
     align-items: start;
     height: 100vh;
-    background-color: white;
+    background-color: darken($color: rebeccapurple, $amount: 20);
     box-shadow: inset -7px 0 9px -7px rgba(0, 0, 0, 0.3);
     position: fixed;
     left: 0;

@@ -8,6 +8,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    @media screen and (max-width: 561px) {
+      h1 {
+        font-size: 1.2rem;
+      }
+      h2 {
+        font-size: 1rem;
+      }
+    }
   }
 </style>
 

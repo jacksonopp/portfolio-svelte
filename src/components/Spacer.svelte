@@ -1,10 +1,8 @@
 <script lang="ts">
+  export let height: number;
 </script>
 
 <style type="text/scss">
-  div {
-    height: 110vh;
-  }
 </style>
 
-<div />
+<div style={`height: ${height}vh`} />

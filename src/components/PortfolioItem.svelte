@@ -31,8 +31,11 @@
       background-color: rgba(42, 157, 143, 0.7);
       box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.3);
       color: #fff;
-      cursor: pointer;
       transition: all 0.3s;
+
+      &:hover {
+        background-color: lighten($color: rgba(42, 157, 143, 0.7), $amount: 7);
+      }
     }
 
     .links {
@@ -51,6 +54,16 @@
       border-radius: 4px;
       box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.3);
       transition: all 0.3s;
+
+      &:hover {
+        background-color: lighten($color: rgba(42, 157, 143, 0.7), $amount: 7);
+      }
+    }
+
+    &:hover {
+      img {
+        opacity: 1;
+      }
     }
   }
 </style>

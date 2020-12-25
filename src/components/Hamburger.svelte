@@ -12,11 +12,16 @@
   button {
     border: none;
     background-color: transparent;
+    fill: #fff8f0;
+
+    &:hover {
+      cursor: pointer;
+    }
     &:active {
       background-color: transparent;
 
       > svg {
-        fill: transparentize($color: #000000, $amount: 0.7);
+        fill: transparentize($color: #fff8f0, $amount: 0.7);
       }
     }
   }

@@ -4,6 +4,14 @@
 <style type="text/scss">
   .big {
     font-size: 1.6rem;
+    a {
+      font-weight: 600;
+    }
+  }
+
+  h1,
+  p {
+    color: #fff8f0;
   }
 </style>
 

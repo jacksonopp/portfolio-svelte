@@ -7,11 +7,11 @@
 	import Spacer from "./components/Spacer.svelte";
 
 	let isNavbarDisplayed = true;
-	let randomValue = 0;
+	let height = 20;
 </script>
 
 <style type="text/scss">
-	$link-color: #2a9d8f;
+	$link-color: #fff8f0;
 
 	:global(body) {
 		margin: 0;
@@ -27,7 +27,7 @@
 		}
 
 		&:hover {
-			color: lighten($color: $link-color, $amount: 0.7);
+			color: darken($color: $link-color, $amount: 20);
 		}
 	}
 
@@ -36,14 +36,18 @@
 	}
 
 	main {
-		display: grid;
 		background-color: rebeccapurple;
 		min-height: 100vh;
 		&.open {
+			display: grid;
 			grid-template-columns: 1fr 5fr;
 		}
 		&.closed {
 			grid-template-columns: 1fr 10fr;
+
+			.section {
+				margin-left: 5rem;
+			}
 		}
 	}
 
@@ -52,7 +56,7 @@
 	}
 
 	.section {
-		height: 100vh;
+		min-height: 100vh;
 	}
 </style>
 
@@ -67,15 +71,15 @@
 	</div>
 	<div class="content">
 		<Name />
-		<Spacer />
+		<Spacer {height} />
 		<div class="section" id="about-me">
 			<About />
 		</div>
-		<Spacer />
-		<div class="section" id="portfolio">
+		<Spacer {height} />
+		<div class="section" id="portfolio ml">
 			<Portfolio />
 		</div>
-		<Spacer />
+		<Spacer {height} />
 		<div class="section" id="contact">
 			<Contact />
 		</div>

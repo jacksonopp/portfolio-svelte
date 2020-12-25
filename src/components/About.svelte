@@ -5,7 +5,7 @@
 
 <style type="text/scss">
   div {
-    color: white;
+    color: #fff8f0;
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 3fr 2fr;
@@ -14,6 +14,15 @@
       "link .";
     row-gap: 1rem;
     column-gap: 1rem;
+
+    @media screen and (max-width: 1000px) {
+      grid-template-columns: 1rem 1fr 1fr 1rem;
+      grid-template-rows: 1fr 5fr 2fr;
+      grid-template-areas:
+        ". photo photo ."
+        ". description description . "
+        ". link link .";
+    }
   }
 
   .description {
@@ -37,6 +46,11 @@
     height: 300px;
     object-fit: cover;
     border-radius: 50%;
+
+    @media screen and (max-width: 1000px) {
+      width: 150px;
+      height: 150px;
+    }
   }
 </style>
 
